@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-center">Lista de Moradores</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Bloco</th>
+      <th>Andar</th>
+      <th>Apartamento</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for morador in moradores %}
+    <tr>
+      <td>{{ morador.nome }}</td>
+      <td>{{ morador.bloco }}</td>
+      <td>{{ morador.andar }}</td>
+      <td>{{ morador.apartamento }}</td>
+      <td class="text-center">{{ morador.email }}</td>
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

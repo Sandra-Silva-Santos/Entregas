@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="text-center">Lista de Todas as Encomendas</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bloco</th>
+      <th>Andar</th>
+      <th>Apto</th>
+      <th>Data de Entrada</th>
+      <th>Selecionar</th>
+      <th>Enviar</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for entrega in encomendas %}
+      <td>{{ entrega.bloco }}</td>
+      <td>{{ entrega.andar }}</td>
+      <td>{{ entrega.apartamento }}</td>
+      <td class="text-center">{{ entrega.data_entrega }}</td>
+      <td class="text-center"><input type="checkbox" class="selecionar-item" data-entrega-id="{{ entrega.id }}"></td>
+      <td class="text-center"><a href="{% url 'aguardando_retirada' %}" class="btn btn-outline-warning btn-sm enviar-btn">Enviar</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
+
+
+
+
+<script>
+  document.querySelectorAll('.selecionar-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      if (this.checked) {
+        var entrega_id = this.getAttribute('data-entrega-id');
+        var tr = this.parentElement.parentElement;
+        tr.classList.add('bg-warning');
+        window.location.href = `/aguardando_retirada/${entrega_id}`;
+      }
+    });
+  });
+</script>

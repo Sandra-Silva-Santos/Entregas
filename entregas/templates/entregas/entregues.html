@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="text-center">ENTREGUES</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Bloco</th>
+      <th>Andar</th>
+      <th>Apto</th>
+      <th>Data de Entrega</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for entrega in entregues %}
+    <tr>
+      <td>{{ entrega.nome_recebedor }}</td>
+      <td>{{ entrega.bloco }}</td>
+      <td>{{ entrega.andar }}</td>
+      <td>{{ entrega.numero_apartamento }}</td>
+      <td>{{ entrega.data_entrega }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
+

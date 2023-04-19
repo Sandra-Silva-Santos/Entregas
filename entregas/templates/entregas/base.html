@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-br">
+
+{% load static %}
+
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="Gerenciamento de Entregas">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+		integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	<title>{% block title %}Gerenciamento de Entregas{% endblock %}</title>
+
+</head>
+
+
+<body>
+
+	<div class="d-flex ">
+		<header>
+			<div>
+				<nav>
+					<ul>
+						<li><a class="btn btn-outline-secondary" href="{% url 'lista_moradores' %}" role="button">
+								Lista de Moradores</a></li>		
+						<li><a class="btn btn-outline-secondary" href="{% url 'cadastrar_morador' %}" role="button">
+								Cadastrar Morador</a></li>		
+						<li><a class="btn btn-outline-secondary" href="{% url 'cadastrar_encomendas' %}" role="button">
+								Cadastrar Encomendas</a></li>
+						<li><a class="btn btn-outline-secondary" href="{% url 'lista_encomendas' %}" role="button">
+								Lista de Encomendas</a></li>
+						<li><a class="btn btn-outline-warning" href="{% url 'aguardando_retirada' %}" role="button">
+								Aguardando Retirada</a></li>		
+						<li><a class=" btn btn-outline-success" href="{% url 'entregues' %}" role="button">
+								Encomendas Entregues</a></li>
+						<li><button class="btn btn-outline-secondary btn-sm" id="dark-mode-toggle"></button></li>			
+					</ul>								
+				</nav>
+			</div>
+			<div>
+				<main>
+					{% block content %}
+					{% endblock %}
+				</main>
+			</div>
+		</header>
+
+		<script src="{% static 'js/dark-mode.js' %}"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
+			integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
+			crossorigin="anonymous" referrerpolicy="no-referrer">
+		</script>
+
+</body>
+
+</html>

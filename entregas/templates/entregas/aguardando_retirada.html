@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="text-center">Aguardando Retirada</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Bloco</th>
+      <th>Andar</th>
+      <th>Apartamento</th>
+      <th>Data de Retirada</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for entrega in pendentes %}
+    <tr>
+      <td>{{ entrega.nome }}</td>
+      <td>{{ entrega.bloco }}</td>
+      <td>{{ entrega.andar }}</td>
+      <td>{{ entrega.apartamento }}</td>
+      <td>{{ entrega.data_entrega }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
