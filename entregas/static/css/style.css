@@ -1,0 +1,165 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+
+body {
+  background-color: #ffffff;
+  /* fundo claro */
+  color: #282c34;
+  /* texto escuro */
+}
+
+body.dark-mode {
+  background-color: rgb(33, 37, 41);
+  /* fundo escuro */
+  color: #adb5bd;
+  /* texto claro */
+}
+
+
+.bi-brightness-high-fill {
+  color: #f1c40f;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3rem;
+  margin: 0 auto;
+  border-radius: 0.3rem;
+  border: 1.5px solid black;
+  font: 1em sans-serif;
+}
+
+header {
+  flex: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3rem;
+  margin: 0 auto;
+  border-radius: 0.3rem;
+  border: 1.5px solid black;
+  font: 1em sans-serif;
+}
+
+h2 {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border: 1.5px solid black;
+  border-radius: 0.3rem;
+  display: table;
+  margin: 0 auto;
+
+}
+
+th {
+  border-collapse: collapse;
+  grid-template-columns: subgrid;
+  border: 2px solid black;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+td {
+  border-collapse: collapse;
+  border: 1.5px solid black;
+  border-radius: 0.3rem;
+  font: 0.85em sans-serif;
+  padding: 0.3rem;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border-radius: 0.2rem;
+  list-style: none;
+  text-align: center;
+  font-size: large;
+
+}
+
+
+li {
+  margin-top: 3rem;
+  padding: 0.2rem;
+  margin-inline: 0.155rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1.5px solid black;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+}
+
+a {
+  text-decoration: none;
+}
+
+form {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid black;
+  font: 1em sans-serif;
+}
+
+input {
+  border-radius: 0.2rem;
+  border: 1px solid black;
+  padding: 0.2rem;
+}
+
+
+select {
+  border-radius: 0.2rem;
+  border: 1px solid black;
+  padding: 0.2rem;
+}
+
+button {
+  border-radius: 0.2rem;
+  border: 1px solid black;
+  padding: 0.1rem;
+  margin: 0.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.nonfield {    
+  color: #dc3545;
+  font-weight: 600;
+  }
+  
+
+
+  .checkbox-label input {
+    margin-right: 1rem;
+  }
+
+    
