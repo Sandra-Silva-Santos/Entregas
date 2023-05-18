@@ -9,21 +9,75 @@
       <th>Nome</th>
       <th>Bloco</th>
       <th>Andar</th>
-      <th>Apartamento</th>
+      <th>Apto</th>
       <th>Data de Retirada</th>
+      <th>Selecionar</th>
+      <th>Finalizar</th>
     </tr>
   </thead>
   <tbody>
     {% for entrega in pendentes %}
     <tr>
       <td>{{ entrega.nome }}</td>
-      <td>{{ entrega.bloco }}</td>
-      <td>{{ entrega.andar }}</td>
-      <td>{{ entrega.apartamento }}</td>
-      <td>{{ entrega.data_entrega }}</td>
+      <td class="text-center">{{ entrega.bloco }}</td>
+      <td class="text-center">{{ entrega.andar }}</td>
+      <td class="text-center">{{ entrega.apartamento }}</td>
+      <td class="text-center">{{ entrega.data_entrega }}</td>
+      <td class="text-center"><input class="form-check-input" type="checkbox" class="selecionar-item" value="{{ entrega.id }}"></td>
+      <td class="text-center"><button type="button" class="btn btn-outline-warning btn-sm enviar-btn" data-bs-toggle="modal" data-bs-target="#modalSheet{{ entrega.id }}">Confirmar</button></td>
     </tr>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalSheet{{ entrega.id }}" aria-hidden="true" aria-labelledby="modalSheetLabel{{ entrega.id }}" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title text-center" id="modalSheetLabel{{ entrega.id }}">Alerta</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            Confirma a entrega da encomenda?
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-bs-target="#modalSheet2{{ entrega.id }}" data-bs-toggle="modal">Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modalSheet2{{ entrega.id }}" aria-hidden="true" aria-labelledby="modalSheetLabel2{{ entrega.id }}" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title text-center" id="modalSheetLabel2{{ entrega.id }}">Aviso</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            Finalizar entrega?
+          </div>
+          <div class="modal-footer">
+            <div class="modal-footer flex-column border-top-0">
+              <a class="btn btn-primary" href="{% url 'entregues' %}" role="button">Finalizar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     {% endfor %}
   </tbody>
 </table>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const enviarBtns = document.querySelectorAll(".enviar-btn");
+
+    enviarBtns.forEach(function (enviarBtn) {
+      enviarBtn.addEventListener("click", function () {
+        const modalId = enviarBtn.getAttribute("data-bs-target");
+        const modalSheet = document.querySelector(modalId);
+        modalSheet.classList.remove("d-none");
+      });
+    });
+  });
+</script>
 
 {% endblock %}

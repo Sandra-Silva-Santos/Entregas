@@ -6,26 +6,24 @@ import uuid
 
 
 
-def lista_entregas(request):
-    entregas = Entrega.objects.all()
-    return render(request, 'lista_entregas.html', {'entregas': entregas})
-
 def entregues(request):
-    entregas = Entrega.objects.filter(status='ENTREGUE')
+    entregas = Entrega.objects.all()
     return render(request, 'entregues.html', {'entregues': entregas})
+    
 
 def aguardando_retirada(request):
-    entregas = Entrega.objects.filter(status='PENDENTE')
-    return render(request, 'aguardando_retirada.html', {'pendentes': entregas})
+    pendentes = Entrega.objects.all()
+    return render(request, 'aguardando_retirada.html', {'pendentes': pendentes})
+
 
 def lista_encomendas(request):
-    entrega = Entrega.objects.all()
-    return render(request, 'lista_encomendas.html', {'encomendas': entrega})
+    entregas = Entrega.objects.all()
+    return render(request, 'lista_encomendas.html', {'encomendas': entregas})
+    
 
 def lista_moradores(request):
     moradores = Morador.objects.all()
-    return render(request, 'lista_moradores.html', {'moradores': moradores})
-
+    return render(request, 'lista_moradores.html', {'moradores': moradores})    
 
 
 def cadastrar_morador(request):
@@ -51,3 +49,8 @@ def cadastrar_encomendas(request):
     else:
         form = EntregaForm()
     return render(request, 'cadastrar_encomendas.html', {'form': form})
+
+
+
+
+

@@ -10,17 +10,19 @@
       <th>Bloco</th>
       <th>Andar</th>
       <th>Apto</th>
+      <th>Porteiro</th>
       <th>Data de Entrega</th>
     </tr>
   </thead>
   <tbody>
     {% for entrega in entregues %}
     <tr>
-      <td>{{ entrega.nome_recebedor }}</td>
-      <td>{{ entrega.bloco }}</td>
-      <td>{{ entrega.andar }}</td>
-      <td>{{ entrega.numero_apartamento }}</td>
-      <td>{{ entrega.data_entrega }}</td>
+      <td>{{ entrega.nome }}</td>
+      <td class="text-center">{{ entrega.bloco }}</td>
+      <td class="text-center">{{ entrega.andar }}</td>
+      <td class="text-center">{{ entrega.apartamento }}</td>
+      <td class="text-center">{{ entrega.porteiro.nome }}</td>
+      <td class="text-center">{{ entrega.data_entrega }}</td>
     </tr>
     {% endfor %}
   </tbody>
