@@ -3,4 +3,5 @@
 ## Projeto Integrador
 ### UNICEU-PJI110-SALA-001GRUPO-016
 
-Aleatório só pra criar a branch de trabalho
+CondoProSmart – Software para gestão de mercadorias em condomínio. 
+
