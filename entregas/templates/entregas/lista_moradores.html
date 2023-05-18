@@ -10,7 +10,7 @@
       <th>Nome</th>
       <th>Bloco</th>
       <th>Andar</th>
-      <th>Apartamento</th>
+      <th>Apto</th>
       <th>Email</th>
     </tr>
   </thead>
@@ -18,9 +18,9 @@
     {% for morador in moradores %}
     <tr>
       <td>{{ morador.nome }}</td>
-      <td>{{ morador.bloco }}</td>
-      <td>{{ morador.andar }}</td>
-      <td>{{ morador.apartamento }}</td>
+      <td class="text-center">{{ morador.bloco }}</td>
+      <td class="text-center">{{ morador.andar }}</td>
+      <td class="text-center">{{ morador.apartamento }}</td>
       <td class="text-center">{{ morador.email }}</td>
 
     </tr>

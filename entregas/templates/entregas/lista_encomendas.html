@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% block content %}
 
 <h2 class="text-center">Lista de Todas as Encomendas</h2>
@@ -10,37 +11,56 @@
       <th>Andar</th>
       <th>Apto</th>
       <th>Data de Entrada</th>
+      <th>Porteiro</th>
       <th>Selecionar</th>
-      <th>Enviar</th>
+      <th>Aviso</th>
     </tr>
   </thead>
   <tbody>
     {% for entrega in encomendas %}
-      <td>{{ entrega.bloco }}</td>
-      <td>{{ entrega.andar }}</td>
-      <td>{{ entrega.apartamento }}</td>
+    <tr>
+      <td class="text-center">{{ entrega.bloco }}</td>
+      <td class="text-center">{{ entrega.andar }}</td>
+      <td class="text-center">{{ entrega.apartamento }}</td>
       <td class="text-center">{{ entrega.data_entrega }}</td>
-      <td class="text-center"><input type="checkbox" class="selecionar-item" data-entrega-id="{{ entrega.id }}"></td>
-      <td class="text-center"><a href="{% url 'aguardando_retirada' %}" class="btn btn-outline-warning btn-sm enviar-btn">Enviar</a></td>
+      <td class="text-center">{{ entrega.porteiro.nome }}</td>
+      <td class="text-center"><input class="form-check-input" type="checkbox" value="{{ entrega.id }}"></td>
+      <td class="text-center"><button type="button" class="btn btn-outline-warning btn-sm enviar-btn" data-bs-toggle="modal" data-bs-target="#modalSheet{{ entrega.id }}">Enviar Email</button></td>
     </tr>
+
+    <div class="modal fade d-none" tabindex="-1" role="dialog" id="modalSheet{{ entrega.id }}">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- Cabeçalho do modal -->
+          </div>
+          <div class="modal-body py-3">
+            <h1 class="text-center">Aviso</h1>
+            <p class="lead text-center">Mensagem enviada com sucesso!</p>
+          </div>
+          <div class="modal-footer flex-column border-top-0">
+            <a class="btn btn-primary" href="{% url 'cadastrar_encomendas' %}" role="button">Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     {% endfor %}
   </tbody>
 </table>
 
-{% endblock %}
-
-
-
-
 <script>
-  document.querySelectorAll('.selecionar-item').forEach(function(item) {
-    item.addEventListener('click', function() {
-      if (this.checked) {
-        var entrega_id = this.getAttribute('data-entrega-id');
-        var tr = this.parentElement.parentElement;
-        tr.classList.add('bg-warning');
-        window.location.href = `/aguardando_retirada/${entrega_id}`;
-      }
+  document.addEventListener("DOMContentLoaded", function () {
+    const enviarBtns = document.querySelectorAll(".enviar-btn");
+
+    enviarBtns.forEach(function (enviarBtn) {
+      enviarBtn.addEventListener("click", function () {
+        const modalId = enviarBtn.getAttribute("data-bs-target");
+        const modalSheet = document.querySelector(modalId);
+        modalSheet.classList.remove("d-none");
+      });
     });
   });
 </script>
+
+{% endblock %}
