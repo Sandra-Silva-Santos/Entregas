@@ -23,3 +23,5 @@ Após ativar o ambiente virtual você pode usar o pip para instalar os requisito
 Execute o seguinte comando no terminal para instalar as dependências do arquivo requirements.txt:
 
 pip install -r requirements.txt
+
+O arquivo  -r requirements.txt encontra-se na pasta do projeto.
