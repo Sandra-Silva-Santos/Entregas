@@ -5,6 +5,7 @@
 
 CondoProSmart – Software para gestão de mercadorias em condomínio. 
 
+
 Para criar um novo ambiente virtual :
 python -m venv venv
 
