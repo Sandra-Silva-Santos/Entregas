@@ -26,17 +26,14 @@ source venv/bin/activate
 <br>
 Após ativar o ambiente virtual você pode usar o pip para instalar os requisitos a partir de um arquivo requirements.txt. 
 
-Execute o seguinte comando no terminal para instalartodas as dependências do projeto do constam no arquivo requirements.txt
+Execute o seguinte comando no terminal para instalar todas as dependências do projeto que constam no arquivo requirements.txt
 <br><br>
 ```bash
 pip install -r requirements.txt
 ```
-<br>
-O arquivo  -r requirements.txt encontra-se na pasta do projeto.
-<br>
 
 
-<br><strong> Iniciar a aplicação </strong><br>
+<br><strong> Iniciar a aplicação </strong><br><br>
 ```bash
 py manage.py runserver
 ```
@@ -44,6 +41,5 @@ ou
 ```bash
 python manage.py runserver
 ```
-
 
 
